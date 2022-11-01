@@ -9,13 +9,12 @@ public class JSONProcessingTest extends TestCase {
     public void testProcessing() {
         JSONProcessing jsonProcessing = new JSONProcessing();
         ClientJSON root = new ClientJSON();
-        root.setTitle("мыло");
-        root.setSum(300);
+        root.setTitle("тапки");
+        root.setSum(700);
         root.setDate("2022.02.08");
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
         jsonProcessing.parsing(new File("categories.tsv"));
-        System.out.println(jsonProcessing.processing(gson.toJson(root)));
-        assertEquals("{\"maxCategory\":{\"category\":\"быт\",\"sum\":600}}", jsonProcessing.processing(gson.toJson(root)));
+        assertEquals("{\"maxCategory\":{\"category\":\"одежда\",\"sum\":700}}", jsonProcessing.processing(gson.toJson(root)));
     }
 }
