@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class JSONProcessing {
 
-    private HashMap<String, Integer> listOfCategories = new HashMap<>();
+    public HashMap<String, Integer> listOfCategories = new HashMap<>();
     public HashMap<String, String> tsv = new HashMap<>();
 
     public void parsing(File file) {
