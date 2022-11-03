@@ -1,15 +1,13 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.json.simple.JSONObject;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class JSONProcessing {
 
-    public HashMap<String, Integer> listOfCategories = new HashMap<>();
-    public HashMap<String, String> tsv = new HashMap<>();
+    private Map<String, Integer> listOfCategories = new HashMap<>();
+    private Map<String, String> tsv = new HashMap<>();
 
     public void parsing(File file) {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -32,14 +30,14 @@ public class JSONProcessing {
         ClientJSON clientJSON = gson.fromJson(jsonObject, ClientJSON.class);
 
 
-        int a = 0;
+        boolean bool = false;
         for (var entry : tsv.entrySet()) {
             if (clientJSON.getTitle().equals(entry.getKey())) {
                 listOfCategories.merge(entry.getValue(), clientJSON.getSum(), Integer::sum);
-                a = 1;
+                bool = true;
             }
         }
-        if (a == 0) {
+        if (!bool) {
             listOfCategories.merge("другое", clientJSON.getSum(), Integer::sum);
         }
 
@@ -56,7 +54,7 @@ public class JSONProcessing {
         GsonBuilder gsonBuilder1 = new GsonBuilder();
         Gson gson1 = gsonBuilder1.create();
 
-        JSONProcessingJSON json = new JSONProcessingJSON();
+        ProcessedJSON json = new ProcessedJSON();
         json.setCategory(listMaxEntry.getKey());
         json.setSum(listMaxEntry.getValue());
         Category category = new Category();
