@@ -1,6 +1,6 @@
-public class JSONProcessingJSON {
+public class ProcessedJSON {
     private String category;
-    private Integer sum;
+    private int sum;
     private String maxCategory;
 
     public String getCategory() {
@@ -11,11 +11,11 @@ public class JSONProcessingJSON {
         this.category = category;
     }
 
-    public Integer getSum() {
+    public int getSum() {
         return sum;
     }
 
-    public void setSum(Integer sum) {
+    public void setSum(int sum) {
         this.sum = sum;
     }
 

@@ -1,11 +1,11 @@
 public class Category {
-    private JSONProcessingJSON maxCategory;
+    private ProcessedJSON maxCategory;
 
-    public JSONProcessingJSON getJsonProcessingJSON() {
+    public ProcessedJSON getJsonProcessingJSON() {
         return maxCategory;
     }
 
-    public void setJsonProcessingJSON(JSONProcessingJSON jsonProcessingJSON) {
-        this.maxCategory = jsonProcessingJSON;
+    public void setJsonProcessingJSON(ProcessedJSON processedJSON) {
+        this.maxCategory = processedJSON;
     }
 }
